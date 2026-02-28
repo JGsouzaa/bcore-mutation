@@ -176,6 +176,27 @@ async fn main() -> Result<()> {
                 run_id = sqlite::store_run(path, if pr == 0 { None } else { Some(pr) }).map_err(Error::from)?;
             }
 
+            println!("mutations options: \n{:?}\n
+            {:?}\n
+            {:?}\n
+            {:?}\n
+            {:?}\n
+            {:?}\n
+            {:?}\n
+            {:?}\n
+            {:?}\n
+            {:?}\n", 
+            pr,
+            file,
+            one_mutant,
+            only_security_mutations,
+            range_lines,
+            coverage,
+            test_only,
+            skip_lines_map,
+            !disable_ast_filtering,
+            add_expert_rule);
+
             mutation::run_mutation(
                 if pr == 0 { None } else { Some(pr) },
                 file.clone(),

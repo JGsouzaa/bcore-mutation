@@ -4,7 +4,7 @@ use crate::git_changes::{get_changed_files, get_lines_touched};
 use crate::operators::{
     get_do_not_mutate_patterns, get_do_not_mutate_py_patterns, get_do_not_mutate_unit_patterns,
     get_regex_operators, get_security_operators, get_skip_if_contain_patterns, get_test_operators,
-    should_mutate_test_line,
+    should_mutate_test_line, get_do_not_mutate_c_patterns
 };
 use regex::Regex;
 use std::collections::HashMap;
@@ -347,6 +347,40 @@ fn should_skip_line(line: &str, file_path: &str, is_unit_test: bool) -> Result<b
         if assignment_regex.is_match(line) {
             return Ok(true);
         }
+    } else if file_path.contains(".c") {
+
+
+        let patterns = get_do_not_mutate_c_patterns();
+
+        for pattern in patterns {
+            if line.contains(pattern) {
+                return Ok(true);
+            }
+        }
+ 
+        // Skip EXPECT / ARG_CHECK macros
+        if line.contains("EXPECT(") || line.contains("ARG_CHECK(") {
+            return Ok(true);
+        }
+
+        // Skip trivial returns
+        if Regex::new(r"^\s*return\s*(0|1|NULL)?\s*;")?.is_match(line) {
+            return Ok(true);
+        }
+         
+        // Skip trivial assignments
+        let assignment_regex =  {
+            Regex::new(
+            r"^\s*\w+\s*=\s*(0|1|NULL|true|false)\s*;"
+            )?
+        };
+
+        if assignment_regex.is_match(line) {
+            return Ok(true);
+        }
+
+
+
     }
 
     Ok(false)
@@ -359,13 +393,12 @@ fn write_mutation(
     pr_number: Option<u32>,
     range_lines: Option<(usize, usize)>,
 ) -> Result<usize> {
-    let file_extension = if file_to_mutate.ends_with(".h") {
-        ".h"
-    } else if file_to_mutate.ends_with(".py") {
-        ".py"
-    } else {
-        ".cpp"
-    };
+     
+    let file_extension = Path::new(file_to_mutate)
+    .extension()
+    .and_then(|ext| ext.to_str())
+    .map(|ext| format!(".{}", ext))
+    .unwrap_or(".cpp".to_string());
 
     let file_name = Path::new(file_to_mutate)
         .file_stem()

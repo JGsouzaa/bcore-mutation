@@ -1,3 +1,4 @@
+use std::env;
 use crate::sqlite::{update_status_mutant, update_command_to_test_mutant};
 use crate::error::{MutationError, Result};
 use crate::report::generate_report;
@@ -240,6 +241,11 @@ async fn run_build_command() -> Result<()> {
 }
 
 fn get_command_to_kill(target_file_path: &str, jobs: u32) -> Result<String> {
+
+    if is_secp256k1_project()? {
+        return Ok("cmake --build build && ctest --test-dir build".to_string())
+    }
+
     let mut build_command = "cmake --build build".to_string();
     if jobs > 0 {
         build_command.push_str(&format!(" -j{}", jobs));
@@ -276,6 +282,17 @@ async fn restore_file(target_file_path: &str) -> Result<()> {
     let restore_command = format!("git restore {}", target_file_path);
     run_command(&restore_command, 30).await?;
     Ok(())
+}
+
+
+fn is_secp256k1_project() -> Result<bool> {
+    let current_dir = env::current_dir()?;
+
+    Ok(current_dir
+        .file_name()
+        .and_then(|n| n.to_str())
+        .map(|name| name.contains("secp256k1"))
+        .unwrap_or(false))
 }
 
 #[cfg(test)]

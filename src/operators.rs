@@ -135,6 +135,24 @@ pub fn get_test_operators() -> Result<Vec<MutationOperator>, regex::Error> {
         .collect()
 }
 
+pub fn get_do_not_mutate_c_patterns() -> Vec<&'static str> {
+    vec![
+        "struct ",
+        "typedef ",
+        "sizeof(",
+        "memcpy(",
+        "memset(",
+        "memclear(",
+        "free(",
+        "SECP256K1_INLINE",
+        "return;",
+        
+        "secp256k1_callback_call(",
+        "}",
+        "secp256k1_ecmult_gen_context ecmult_gen_ctx;",
+    ]
+}
+
 pub fn get_do_not_mutate_patterns() -> Vec<&'static str> {
     vec![
         "//",

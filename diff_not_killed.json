@@ -1,0 +1,159 @@
+[
+  {
+    "date": "27/12/2025 10:15:31",
+    "diffs": {
+      "139": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -136,7 +136,7 @@ async fn main() -> Result<()> {\n             };\n \n             let range_lines = if let Some(range_vec) = range {\n-                if range_vec.len() != 2 || range_vec[0] > range_vec[1] {\n+                if range_vec.len() != 2 || range_vec[0] <= range_vec[1] {\n                     return Err(MutationError::InvalidInput(\"Invalid range\".to_string()));\n                 }\n                 Some((range_vec[0], range_vec[1]))\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -136,7 +136,7 @@ async fn main() -> Result<()> {\n             };\n \n             let range_lines = if let Some(range_vec) = range {\n-                if range_vec.len() != 2 || range_vec[0] > range_vec[1] {\n+                if range_vec.len() != 2 && range_vec[0] > range_vec[1] {\n                     return Err(MutationError::InvalidInput(\"Invalid range\".to_string()));\n                 }\n                 Some((range_vec[0], range_vec[1]))\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 2,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -136,7 +136,7 @@ async fn main() -> Result<()> {\n             };\n \n             let range_lines = if let Some(range_vec) = range {\n-                if range_vec.len() != 2 || range_vec[0] > range_vec[1] {\n+                if range_vec.len() != 2 || range_vec[0] < range_vec[1] {\n                     return Err(MutationError::InvalidInput(\"Invalid range\".to_string()));\n                 }\n                 Some((range_vec[0], range_vec[1]))\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 3,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -136,7 +136,7 @@ async fn main() -> Result<()> {\n             };\n \n             let range_lines = if let Some(range_vec) = range {\n-                if range_vec.len() != 2 || range_vec[0] > range_vec[1] {\n+                if range_vec.len() != 2 || range_vec[0] <= range_vec[1] {\n                     return Err(MutationError::InvalidInput(\"Invalid range\".to_string()));\n                 }\n                 Some((range_vec[0], range_vec[1]))\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 4,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -136,7 +136,7 @@ async fn main() -> Result<()> {\n             };\n \n             let range_lines = if let Some(range_vec) = range {\n-                if range_vec.len() != 2 || range_vec[0] > range_vec[1] {\n+                if range_vec.len() != 2 || range_vec[0] >= range_vec[1] {\n                     return Err(MutationError::InvalidInput(\"Invalid range\".to_string()));\n                 }\n                 Some((range_vec[0], range_vec[1]))\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 5,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -136,7 +136,7 @@ async fn main() -> Result<()> {\n             };\n \n             let range_lines = if let Some(range_vec) = range {\n-                if range_vec.len() != 2 || range_vec[0] > range_vec[1] {\n+                if range_vec.len() != 2 || range_vec[0] >= range_vec[1] {\n                     return Err(MutationError::InvalidInput(\"Invalid range\".to_string()));\n                 }\n                 Some((range_vec[0], range_vec[1]))\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 6,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -136,7 +136,7 @@ async fn main() -> Result<()> {\n             };\n \n             let range_lines = if let Some(range_vec) = range {\n-                if range_vec.len() != 2 || range_vec[0] > range_vec[1] {\n+                if range_vec.len() == 2 || range_vec[0] > range_vec[1] {\n                     return Err(MutationError::InvalidInput(\"Invalid range\".to_string()));\n                 }\n                 Some((range_vec[0], range_vec[1]))\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 7,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -136,7 +136,7 @@ async fn main() -> Result<()> {\n             };\n \n             let range_lines = if let Some(range_vec) = range {\n-                if range_vec.len() != 2 || range_vec[0] > range_vec[1] {\n+                if range_vec.len() == 2 || range_vec[0] > range_vec[1] {\n                     return Err(MutationError::InvalidInput(\"Invalid range\".to_string()));\n                 }\n                 Some((range_vec[0], range_vec[1]))\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 8,
+          "status": "alive"
+        }
+      ],
+      "157": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -154,7 +154,7 @@ async fn main() -> Result<()> {\n                 None => None,\n             };\n \n-            if pr != 0 && file.is_some() {\n+            if pr != 0 || file.is_some() {\n                 return Err(MutationError::InvalidInput(\n                     \"You should only provide PR number or file\".to_string(),\n                 ));\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -154,7 +154,7 @@ async fn main() -> Result<()> {\n                 None => None,\n             };\n \n-            if pr != 0 && file.is_some() {\n+            if pr == 0 && file.is_some() {\n                 return Err(MutationError::InvalidInput(\n                     \"You should only provide PR number or file\".to_string(),\n                 ));\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 2,
+          "status": "alive"
+        }
+      ],
+      "163": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -160,7 +160,7 @@ async fn main() -> Result<()> {\n                 ));\n             }\n \n-            if coverage.is_some() && range_lines.is_some() {\n+            if coverage.is_some() || range_lines.is_some() {\n                 return Err(MutationError::InvalidInput(\n                     \"You should only provide coverage file or the range of lines to mutate\"\n                         .to_string(),\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        }
+      ],
+      "176": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -173,7 +173,7 @@ async fn main() -> Result<()> {\n \n             if let Some(ref path) = db_path {\n                 sqlite::check_db(path).map_err(Error::from)?;\n-                run_id = sqlite::store_run(path, if pr == 0 { None } else { Some(pr) }).map_err(Error::from)?;\n+                run_id = sqlite::store_run(path, if pr != 0 { None } else { Some(pr) }).map_err(Error::from)?;\n             }\n \n             mutation::run_mutation(\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        }
+      ],
+      "180": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -177,7 +177,7 @@ async fn main() -> Result<()> {\n             }\n \n             mutation::run_mutation(\n-                if pr == 0 { None } else { Some(pr) },\n+                if pr != 0 { None } else { Some(pr) },\n                 file.clone(),\n                 one_mutant,\n                 only_security_mutations,\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -177,7 +177,7 @@ async fn main() -> Result<()> {\n             }\n \n             mutation::run_mutation(\n-                if pr == 0 { None } else { Some(pr) },\n+                if pr != 0 { None } else { Some(pr) },\n                 file.clone(),\n                 one_mutant,\n                 only_security_mutations,\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 2,
+          "status": "alive"
+        }
+      ],
+      "197": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -194,7 +194,7 @@ async fn main() -> Result<()> {\n                 sqlite::store_mutants(\n                     path,\n                     run_id,\n-                    if pr == 0 { None } else { Some(pr) },\n+                    if pr != 0 { None } else { Some(pr) },\n                     file,\n                     range_lines).map_err(Error::from)?;\n             }\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -194,7 +194,7 @@ async fn main() -> Result<()> {\n                 sqlite::store_mutants(\n                     path,\n                     run_id,\n-                    if pr == 0 { None } else { Some(pr) },\n+                    if pr != 0 { None } else { Some(pr) },\n                     file,\n                     range_lines).map_err(Error::from)?;\n             }\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 2,
+          "status": "alive"
+        }
+      ],
+      "226": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -223,7 +223,7 @@ async fn main() -> Result<()> {\n             if sqlite.is_some() {\n                 if runid.is_none() {\n                     return Err(MutationError::InvalidInput(\n-                        \"--sqlite requires --runid\".to_string(),\n+                        \"++sqlite requires --runid\".to_string(),\n                     ));\n                 }\n \n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -223,7 +223,7 @@ async fn main() -> Result<()> {\n             if sqlite.is_some() {\n                 if runid.is_none() {\n                     return Err(MutationError::InvalidInput(\n-                        \"--sqlite requires --runid\".to_string(),\n+                        \"++sqlite requires --runid\".to_string(),\n                     ));\n                 }\n \n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 2,
+          "status": "alive"
+        }
+      ],
+      "230": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -227,7 +227,7 @@ async fn main() -> Result<()> {\n                     ));\n                 }\n \n-                if runid.is_some() && db_path.is_none() {\n+                if runid.is_some() || db_path.is_none() {\n                     return Err(MutationError::InvalidInput(\n                         \"--runid requires --sqlite\".to_string(),\n                     ));\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -227,7 +227,7 @@ async fn main() -> Result<()> {\n                     ));\n                 }\n \n-                if runid.is_some() && db_path.is_none() {\n+                if runid.is_some() || db_path.is_none() {\n                     return Err(MutationError::InvalidInput(\n                         \"--runid requires --sqlite\".to_string(),\n                     ));\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 2,
+          "status": "alive"
+        }
+      ],
+      "232": [
+        {
+          "commit": "64685c8",
+          "diff": "@@ -229,7 +229,7 @@ async fn main() -> Result<()> {\n \n                 if runid.is_some() && db_path.is_none() {\n                     return Err(MutationError::InvalidInput(\n-                        \"--runid requires --sqlite\".to_string(),\n+                        \"++runid requires --sqlite\".to_string(),\n                     ));\n                 }\n             }\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 1,
+          "status": "alive"
+        },
+        {
+          "commit": "64685c8",
+          "diff": "@@ -229,7 +229,7 @@ async fn main() -> Result<()> {\n \n                 if runid.is_some() && db_path.is_none() {\n                     return Err(MutationError::InvalidInput(\n-                        \"--runid requires --sqlite\".to_string(),\n+                        \"++runid requires --sqlite\".to_string(),\n                     ));\n                 }\n             }\n@@ -245,4 +245,4 @@ fn read_skip_lines(path: &PathBuf) -> Result<HashMap<String, Vec<usize>>> {\n     let content = std::fs::read_to_string(path)?;\n     let map: HashMap<String, Vec<usize>> = serde_json::from_str(&content)?;\n     Ok(map)\n-}\n+}\n\\ No newline at end of file\n",
+          "id": 2,
+          "status": "alive"
+        }
+      ]
+    },
+    "filename": "src/main.rs",
+    "mutation_score": 0.0
+  }
+]
